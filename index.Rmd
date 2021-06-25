@@ -6,7 +6,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-## Estudiante: Niccolo Antonio Zúñiga Bogarín C08690
+## Estudiante: Niccolo Antonio Zúñiga Bogarín C08690.
 # Preparativos. 
 ### Cargamos los paquetes que se necesitan para desarrollar la tarea correctamente.
 ```{r cargapaquetes, message=FALSE, warning=FALSE}
