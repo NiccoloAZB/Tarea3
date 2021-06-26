@@ -43,7 +43,7 @@ cantones <-
   )
 
 ```
-## Asignación de CRS
+## Asignación de CRS.
 ```{r}
 st_crs(primates_cr) = 4326
 
@@ -51,7 +51,7 @@ st_crs(primates_cr) = 4326
 ### Unimos la capa de primates y cantones.
 ```{r, message=FALSE, warning=FALSE}
 # Cruce espacial con la tabla de cantones, para obtener el nombre del cantón
-primates_crs <- 
+primates_cr <- 
   primates_cr %>%
   st_join(cantones["canton"])
 ```
@@ -71,11 +71,11 @@ altitud <- crop(alt, extent(-86, -82.3, 8, 11.3))
 ```
 
 # Tabla con registros.
-### Con la capa de primates con cantones podemos hacer la tabla de registros con las varables que se solicitaron además con la interfaz en español con el comando ¨lenguage¨
+### Con la capa de primates con cantones podemos hacer la tabla de registros con las varables que se solicitaron además con la interfaz en español con el comando ¨lenguage¨.
 ```{r}
 primates_cr %>%
   st_drop_geometry() %>%
-  select(family, species, stateProvince, canton, eventDate) %>%
+ dplyr::select(family, species, stateProvince, canton, eventDate) %>%
   datatable(
     colnames = c("Familia",
                  "Especie",
@@ -118,7 +118,7 @@ plot_ly(gresgistros3,
 
 ```
 # filtrado de Especies
-### Creamos nuevos ¨DATAS¨ para cada uno de los nombres de los primtates para trabajar con cada uno independinete
+### Creamos nuevos ¨DATAS¨ para cada uno de los nombres de los primtates para trabajar con cada uno independinete.
 ```{r}
 Ateles <- primates_cr %>%
   filter(species == "Ateles geoffroyi")
@@ -148,7 +148,7 @@ palet <- colorNumeric(
 ```{r}
 # Mapa de registros de presencia
 primates_cr %>%
-  select(stateProvince,
+  dplyr::select(stateProvince,
          canton,
          eventDate,
          species) %>%
